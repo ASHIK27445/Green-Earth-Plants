@@ -298,12 +298,10 @@
                     </div>
                 `
 
-                // Add event listener for plant name (to open modal)
                 card.querySelector('.plant-name').addEventListener('click', () => {
                     openPlantModal(plant);
                 });
 
-                // Add event listener for add to cart button
                 card.querySelector('.add-to-cart-btn').addEventListener('click', () => {
                     addToCart(plant);
                 });
@@ -319,7 +317,7 @@
                 }
             });
 
-            categories = Array.from(categorySet).sort(); // optional: sort alphabetically
+            categories = Array.from(categorySet).sort(); 
         }
 
 
@@ -354,7 +352,7 @@
 
         }
 
-        // Add to cart
+        // Cart functionality
         const addToCart = (plant) => {
             cart.push({
                 id: plant.id,
@@ -367,7 +365,6 @@
             showNotification(`${plant.name} added to cart!`);
         };
 
-        // Remove from cart
         const removeFromCart = (index) => {
             const removedItem = cart[index];
             cart.splice(index, 1);
@@ -375,7 +372,6 @@
             showNotification(`${removedItem.name} removed from cart!`);
         };
 
-        // Update cart display
         const updateCart = () => {
             cartItems.innerHTML = '';
 
@@ -421,7 +417,6 @@
         const openPlantModal = async (plant) => {
             currentPlant = plant;
 
-            // Update modal content
             document.getElementById('modalPlantName').textContent = plant.name;
             document.getElementById('modalPlantImage').src = plant.image;
             document.getElementById('modalPlantCategory').textContent = plant.category || 'Uncategorized';
@@ -429,18 +424,15 @@
             document.getElementById('modalPlantDescription').textContent = plant.description || 'No description available';
             document.getElementById('modalPlantCare').textContent = 'Requires moderate sunlight and weekly watering. Suitable for both indoor and outdoor environments.';
 
-            // Show modal
             plantModal.classList.remove('hidden');
             plantModal.classList.add('flex');
         };
 
-        // Close modal
         closeModal.addEventListener('click', () => {
             plantModal.classList.add('hidden');
             plantModal.classList.remove('flex');
         });
 
-        // Add to cart from modal
         modalAddToCart.addEventListener('click', () => {
             if (currentPlant) {
                 addToCart(currentPlant);
@@ -448,9 +440,6 @@
                 plantModal.classList.remove('flex');
             }
         });
-
-
-
 
         fetchPlants()
 
