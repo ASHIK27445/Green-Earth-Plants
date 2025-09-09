@@ -104,7 +104,9 @@
                     <img src="./assets/about.png" alt="" srcset="">
                 </div>
                 <div class="w-full text-start text-[#1F2937] font-inter text-sm">
-                    <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+                    <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since
+                        our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore
+                        forests, create habitats for wildlife, and combat global warming.</p>
                     <ul class="list-disc pl-5 pt-5">
                         <li>Restoration of natural habitats</li>
                         <li>Improvement of air quality</li>
@@ -113,6 +115,54 @@
                 </div>
             </div>
         </section>
+
+        <section class="bg-[#CFF0DC] pb-14">
+            <h1 class="text-center font-inter font-semibold text-3xl text-[#1F2937] pt-14 pb-8">Our Impact</h1>
+            <div class="mx-10 flex flex-col gap-10 lg:flex-row lg:mx-20">
+                <div class="bg-white text-center rounded-xl w-full lg:w-3/5 py-10">
+                    <h2 class="font-inter font-bold text-3xl pb-3 text-[#15803D]">500K+</h2>
+                    <p class="font-inter text-sm text-[#1F2937]">Trees Planted</p>
+                </div>
+                <div class="bg-white text-center rounded-xl w-full lg:w-3/5 py-10">
+                    <h2 class="font-inter font-bold text-3xl pb-3 text-[#15803D]">120+</h2>
+                    <p class="font-inter text-sm text-[#1F2937]">Communities Involved</p>
+                </div>
+                <div class="bg-white text-center rounded-xl w-full lg:w-3/5 py-10">
+                    <h2 class="font-inter font-bold text-3xl pb-3 text-[#15803D]">30+</h2>
+                    <p class="font-inter text-sm text-[#1F2937]">Countries Reached</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-[#166534] flex flex-col items-center justify-center min-h-screen">
+            <div class="w-full max-w-md text-center">
+                <h1 class="font-inter font-semibold text-2xl lg:text-3xl text-white pt-14">Plant a Tree Today</h1>
+            </div>
+
+            <div class="mx-5 lg:mx-10 bg-[#15803D] p-8 shadow-md rounded-xl my-14 w-full max-w-lg">
+                <form action="">
+                    <input type="text" placeholder="Your Name"
+                        class="w-full bg-white px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-3">
+
+                    <input type="email" placeholder="Your Email Address"
+                        class="w-full bg-white px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-3">
+
+                    <select
+                        class="w-full bg-white px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-3">
+                        <option>Number of Trees</option>
+                        <option>1 Tree</option>
+                        <option>2 Trees</option>
+                        <option>3 Trees</option>
+                    </select>
+
+                    <button type="submit"
+                        class="w-full bg-yellow-400 text-green-900 font-semibold py-2 rounded-full hover:bg-yellow-500 transition mb-3">
+                        Donate Now
+                    </button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
     <div id="plantModal" class="hidden flex fixed inset-0 bg-opacity-50  items-center justify-center z-50 font-inter">
@@ -137,18 +187,24 @@
                 </div>
                 <div class="mb-4">
                     <h4 class="font-semibold text-[#1F2937]">Description</h4>
-                    <p id="modalPlantDescription" class="text-[#111111] text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nunc vitae nisi efficitur tempor.</p>
+                    <p id="modalPlantDescription" class="text-[#111111] text-xs">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Nullam at nunc vitae nisi efficitur tempor.</p>
                 </div>
                 <div class="mb-4">
                     <h4 class="font-semibold text-[#1F2937]">Care Instructions</h4>
                     <p id="modalPlantCare" class="text-[#111111] text-xs"></p>
                 </div>
-                <button id="modalAddToCart" class="w-full text-sm bg-green-600 hover:bg-[#1F2937] text-white font-bold py-2 px-4 rounded">
+                <button id="modalAddToCart"
+                    class="w-full text-sm bg-green-600 hover:bg-[#1F2937] text-white font-bold py-2 px-4 rounded">
                     Add to Cart
                 </button>
             </div>
         </div>
     </div>
+
+    <footer class="text-center text-white bg-[#14532D] font-inter text-sm py-4">
+        <p>© 2025 Green Earth. All Rights Reserved.</p>
+    </footer>
 
     <script>
         const plantsContainer = document.getElementById('plantsContainer')
@@ -241,12 +297,12 @@
                         </button>
                     </div>
                 `
-                    
-                                // Add event listener for plant name (to open modal)
+
+                // Add event listener for plant name (to open modal)
                 card.querySelector('.plant-name').addEventListener('click', () => {
                     openPlantModal(plant);
                 });
-                
+
                 // Add event listener for add to cart button
                 card.querySelector('.add-to-cart-btn').addEventListener('click', () => {
                     addToCart(plant);
@@ -361,10 +417,10 @@
         };
 
 
-                // Open plant modal
+        // Open plant modal
         const openPlantModal = async (plant) => {
             currentPlant = plant;
-            
+
             // Update modal content
             document.getElementById('modalPlantName').textContent = plant.name;
             document.getElementById('modalPlantImage').src = plant.image;
@@ -372,18 +428,18 @@
             document.getElementById('modalPlantPrice').textContent = plant.price ? formatCurrency(parseFloat(plant.price)) : '$0.00';
             document.getElementById('modalPlantDescription').textContent = plant.description || 'No description available';
             document.getElementById('modalPlantCare').textContent = 'Requires moderate sunlight and weekly watering. Suitable for both indoor and outdoor environments.';
-            
+
             // Show modal
             plantModal.classList.remove('hidden');
             plantModal.classList.add('flex');
         };
-        
+
         // Close modal
         closeModal.addEventListener('click', () => {
             plantModal.classList.add('hidden');
             plantModal.classList.remove('flex');
         });
-        
+
         // Add to cart from modal
         modalAddToCart.addEventListener('click', () => {
             if (currentPlant) {
@@ -392,7 +448,7 @@
                 plantModal.classList.remove('flex');
             }
         });
-        
+
 
 
 
